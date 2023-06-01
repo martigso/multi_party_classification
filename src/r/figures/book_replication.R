@@ -131,7 +131,8 @@ lapply(mods, function(x){
     scale_y_continuous(limits = c(.2, 0.6), breaks = seq(0, 1, 0.05), expand = c(0, 0)) +
     scale_x_continuous(limits = c(0.12, 0.525), breaks = seq(0, 1, .05), expand = c(0, 0)) +
     labs(y = "Predicted probability", x = "Mean classification probability",
-         subtitle = paste0("Logit slope: ", round(regplot$coef[which(regplot$cov == "m")], 2), " (", round(sqrt(diag(reg2_cl))[2], 2), ")")) +
+         subtitle = paste0("Logit slope: ", round(regplot$coef[which(regplot$cov == "m")], 2), 
+                           " (", round(sqrt(diag(reg2_cl))[2], 2), ")")) +
     theme_classic() + 
     theme(panel.grid.major = element_line(color = "gray95"))
   ggsave(paste0("./paper/figures/book_replication/", x, ".pdf"))

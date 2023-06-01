@@ -19,7 +19,6 @@ load("../../pol_legdebate_book/data/choice_set.rda")
 suppressWarnings(suppressMessages(meta <- read_csv("../../gitDebates/talk-of-norway/data/ton_updated.csv")))
 
 # Converting duration to years
-# Converting duration to years
 choice_set$rep_cumdur <- choice_set$rep_cumdur / 365.25
 choice_set$rep_cumdur_term <- choice_set$rep_cumdur / 4
 choice_set$age_sq <- choice_set$rep_age^2
@@ -138,3 +137,4 @@ restab <- stargazer(original, regs[[1]], regs[[2]], regs[[3]], regs[[4]],
                     label = "tab:glm_reg1",
                     notes =  "* p<0.05", keep.stat = "n")
 
+lapply(regs, \(x) x$coefficients[2])
